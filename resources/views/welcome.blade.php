@@ -44,7 +44,7 @@
                         </g>
                     </svg>
                     <div>
-                        <h1>&nbsp; &nbsp; &nbsp; My first Laravel App</h1><hr>
+                        <h1>&nbsp; &nbsp; &nbsp; I'm {{$name}} and it's my first Laravel App.</h1><hr>
                         <h2><a href="/contact" class="underline" style="color:blue">Contact</a></h2>
                     </div>
                 </div>

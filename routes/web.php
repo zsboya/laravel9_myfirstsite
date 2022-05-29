@@ -13,8 +13,16 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
+}); */
+
+Route::get('/', function () {
+    $username = 'Zsolt';
+    return view('welcome', [
+    'name' => $username
+    ]);
 });
 
 Route::get('/contact', function () {
