@@ -49,4 +49,21 @@ Route::get('requesttest', function () {
       'title' => request('title'),  // példa: http://127.0.0.1:8000/requesttest?title=asdf
       'foo' => '<script>alert("foobar");</script>'  // utvonalnev?kulcs1=ertek1&kulcs2=ertek2
     ]);
-  });
+});
+
+Route::get('/posts/{post}', function ($post) {
+	$posts = [
+		'my-first-post' => 'Hello, this is my first blog post!',
+		'my-second-post' => 'Now I am getting the hang of this blogging thing.'
+	];
+	/*
+	return view('post', [ 
+		'post' => $posts[$post] ?? 'Nothing here yet.'	
+	]); */
+	if ( ! array_key_exists($post, $posts)) {
+		abort(404);
+	}
+	return view('post', [ 
+		'post' => $posts[$post]
+	]);
+});
