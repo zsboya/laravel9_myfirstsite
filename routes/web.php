@@ -1,6 +1,7 @@
 <?php
 
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,13 +58,15 @@ Route::get('/posts/{post}', function ($post) {
 		'my-second-post' => 'Now I am getting the hang of this blogging thing.'
 	];
 	/*
-	return view('post', [ 
-		'post' => $posts[$post] ?? 'Nothing here yet.'	
+	return view('post', [
+		'post' => $posts[$post] ?? 'Nothing here yet.'
 	]); */
 	if ( ! array_key_exists($post, $posts)) {
 		abort(404);
 	}
-	return view('post', [ 
+	return view('post', [
 		'post' => $posts[$post]
 	]);
 });
+
+Route::get('/posts/{post}',[PostsController::class, 'show']);
